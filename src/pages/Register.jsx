@@ -1,10 +1,14 @@
 import FormRegister from "../components/atoms/FormRegister";
-import Title from "../components/atoms/Title";
+import Imagenes from "../components/atoms/Imagenes";
+import imgCherry from '../assets/imgs/imgCherry.png'
+import '../assets/styles/Imagenes.css'
 function Register() {
     return ( 
         <>
-            <Title msn="Registro de usuarios"></Title>
             <FormRegister></FormRegister>
+            <div className="imgCherry">
+                <Imagenes imagen={imgCherry}></Imagenes>
+            </div>
         </>
      );
 }

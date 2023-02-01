@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/react.svg'
+import '../../assets/styles/Inputs.css'
+import '../../assets/imgs/imgDrPepper.png'
+
 function FormLogin() {
     //const [description, setDescription] = useState({msn: "CC", v : 1})
     //const [username, setUsername] = useState('')
@@ -17,15 +19,17 @@ function FormLogin() {
     }
     return (
         <form>
-            <img src={Logo} alt="Logotipo de la empresa" />
-            <input type="text" value={stateForm.username} onChange={handlerChange}/>
-            <input type="password" value ={stateForm.password} onChange={handlerChangePassword}/>
-            <button onClick={handlerClick}>Iniciar sesión</button>
-            <Link to="/register">Registrate</Link>
+            <label className='loginNombreDeUsuario'>Nombre De Usuario</label>
+            <input className='inputLoginUsername' type="text" value={stateForm.username} onChange={handlerChange}/>
+            <label className='loginContrasena'>Contraseña</label>
+            <input className='inputLoginPassword' type="password" value ={stateForm.password} onChange={handlerChangePassword}/>
+            <button className='loginBtn' onClick={handlerClick}>Enviar</button>
+            <Link className='textoRegistrarme' to="/register">Registrate</Link>
 {            <div>
                 <label>{JSON.stringify(stateForm)}</label>
             </div>}
         </form>
       );
+      //los estados son asincronos
 }
 export default FormLogin;
