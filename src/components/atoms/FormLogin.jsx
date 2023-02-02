@@ -24,9 +24,9 @@ function FormLogin() {
                 <div className="contenedor-inputs">
                     <input className="input-100" type="text" placeholder="Nombre De Usuario"  value={stateForm.username} onChange={handlerChange}></input>
                     <input className="input-100" type="password" placeholder="Contraseña" value ={stateForm.password} onChange={handlerChangePassword}></input>
-                    <button className="btnAltaBus" onClick={handlerClick} >Alta De Autobuses</button>
+                    <button className="btnAltaBus" onClick={handlerClick} >Acceder</button>
                 </div>
-                <Link className='textoRegistrarme' to="/register">Registrate</Link>
+                <Link className='registrarseLogin' to="/register">Registrarse</Link>
             </form>
         </>
       );

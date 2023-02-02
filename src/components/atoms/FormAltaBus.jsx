@@ -44,6 +44,7 @@ function FormAltaBus() {
                 <input className="input-100" type="text" name='nombre' id='chofer' placeholder="Nombre Del Chofer"></input>
                 <input className="input-100" type="number" name='licencia' placeholder="Número De Licencia"></input>
                 <button onClick={handlerClick} className="btnAltaBus">Alta De Autobuses</button>
+                <Link to="/register">Registrate</Link>
                 </div>
             </form>
        
