@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import '../../assets/styles/Inputs.css'
@@ -7,6 +7,12 @@ import '../../assets/styles/FormLogin.css'
 function FormAltaBus() {
     const navigate = useNavigate()
     const form = useRef();
+    const [randomNumero, setFuncionMatematica] = useState("");
+    const handlerClickNumAleatorio = (e) =>{
+        e.preventDefault();
+        let numLi = (Math.floor(Math.random() * (100000000 - 90000000) + 10000000));
+          setFuncionMatematica(numLi)
+    }
     const handlerClick = (e) =>{
         e.preventDefault();
         const formData = new FormData(form.current);
@@ -34,6 +40,8 @@ function FormAltaBus() {
 
         const newForm = new FormData(form.current)
         alert(' Clave: '+ newForm.get('clave') + '  Placa: '+ newForm.get('placa') + '  Número De Asientos: ' + newForm.get('numasientos') + '  Fecha De Alta: ' + newForm.get('fecha') + '  Nombre De Chofer: ' + newForm.get('nombre') + '  Número De Licencia: ' + newForm.get('licencia') + '  Tipo: ' + newForm.get('tipo'));
+        alert('Programación Web');
+        alert('Maestro de los autobuses Alí Zunun');
         navigate("/");
     }
     
@@ -52,7 +60,8 @@ function FormAltaBus() {
                         <option value='Lujo'>Turismo</option>
                     </select>
                 <input className="input-100" type="text" name='nombre' id='chofer' placeholder="Nombre Del Chofer"></input>
-                <input className="input-100" type="number" name='licencia' placeholder="Número De Licencia"></input>
+                <input className="input-100" type="number" name='licencia' value={randomNumero} placeholder="Número De Licencia"></input>
+                <button onClick={handlerClickNumAleatorio} className="btnAltaBus">Generar número</button>
                 <button onClick={handlerClick} className="btnAltaBus">Alta De Autobuses</button>
                 <Link className='registrarseLogin' to="/">Volver</Link>
                 </div>
