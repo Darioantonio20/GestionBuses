@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import {useNavigate} from 'react-router-dom'
 import '../../assets/styles/Inputs.css'
-import '../../assets/imgs/imgCherry.png'
+
 
 function FormRegister() {
     const navigate = useNavigate()
