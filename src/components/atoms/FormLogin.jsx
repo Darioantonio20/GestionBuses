@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom';
 import '../../assets/styles/Inputs.css'
-import '../../assets/imgs/imgDrPepper.png'
+import '../../assets/styles/FormLogin.css'
 
 function FormLogin() {
     //const [description, setDescription] = useState({msn: "CC", v : 1})
@@ -18,17 +18,17 @@ function FormLogin() {
         setStateForm({...stateForm,password: e.target.value})
     }
     return (
-        <form>
-            <label className='loginNombreDeUsuario'>Nombre De Usuario</label>
-            <input className='inputLoginUsername' type="text" value={stateForm.username} onChange={handlerChange}/>
-            <label className='loginContrasena'>Contraseña</label>
-            <input className='inputLoginPassword' type="password" value ={stateForm.password} onChange={handlerChangePassword}/>
-            <button className='loginBtn' onClick={handlerClick}>Enviar</button>
-            <Link className='textoRegistrarme' to="/register">Registrate</Link>
-{            <div>
-                <label>{JSON.stringify(stateForm)}</label>
-            </div>}
-        </form>
+        <>
+        <form className="form-register">
+                <h2 className="form__titulo">Login</h2>
+                <div className="contenedor-inputs">
+                    <input className="input-100" type="text" placeholder="Nombre De Usuario"  value={stateForm.username} onChange={handlerChange}></input>
+                    <input className="input-100" type="password" placeholder="Contraseña" value ={stateForm.password} onChange={handlerChangePassword}></input>
+                    <button className="btnAltaBus" onClick={handlerClick} >Alta De Autobuses</button>
+                </div>
+                <Link className='textoRegistrarme' to="/register">Registrate</Link>
+            </form>
+        </>
       );
       //los estados son asincronos
 }
