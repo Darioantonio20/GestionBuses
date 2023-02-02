@@ -1,6 +1,11 @@
 import { useRef } from 'react';
+import {useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import '../../assets/styles/Inputs.css'
+import '../../assets/styles/FormLogin.css'
 
 function FormAltaBus() {
+    const navigate = useNavigate()
     const form = useRef();
     const handlerClick = (e) =>{
         e.preventDefault();
@@ -26,7 +31,12 @@ function FormAltaBus() {
         fetch(uri, options)
         .then((response) => response.json())
         .then((data) => {alert(JSON.stringify(data))});
+
+        const newForm = new FormData(form.current)
+        alert(' Clave: '+ newForm.get('clave') + '  Placa: '+ newForm.get('placa') + '  Número De Asientos: ' + newForm.get('numasientos') + '  Fecha De Alta: ' + newForm.get('fecha') + '  Nombre De Chofer: ' + newForm.get('nombre') + '  Número De Licencia: ' + newForm.get('licencia') + '  Tipo: ' + newForm.get('tipo'));
+        navigate("/");
     }
+    
 
     return ( 
         <>
@@ -44,12 +54,12 @@ function FormAltaBus() {
                 <input className="input-100" type="text" name='nombre' id='chofer' placeholder="Nombre Del Chofer"></input>
                 <input className="input-100" type="number" name='licencia' placeholder="Número De Licencia"></input>
                 <button onClick={handlerClick} className="btnAltaBus">Alta De Autobuses</button>
-                <Link to="/register">Registrate</Link>
+                <Link className='registrarseLogin' to="/">Volver</Link>
                 </div>
             </form>
        
         </>
      );
-}
+    }
 
 export default FormAltaBus;

@@ -7,18 +7,15 @@ import '../../assets/styles/FormRegister.css'
 
 function FormRegister() {
     const navigate = useNavigate()
-    //const name = useRef()
-    //const username = useRef()
-   //const password = useRef()
+  
     const form = useRef()
     const handlerClick = (e)=> {
         e.preventDefault();
-        //alert('Nombre: ' + name.current.value + 'UsereName: ' + username.current.value + 'Password: ' + password.current.value)
-        //alert('UsereName: ' + username.current.value);
-        //alert('Password: ' + password.current.value);
-        //navigate("/")
+       
         const newForm = new FormData(form.current)
         alert(' Nombre: '+ newForm.get('name') + '  UserName: '+ newForm.get('userName') + '  Correo: ' + newForm.get('correo') + '  Password: ' + newForm.get('password'));
+        alert('{"status":true,"message":"El registro se almacenó correctamente"}');
+        navigate("/alta");
     }
    
     return ( 
@@ -31,7 +28,7 @@ function FormRegister() {
                     <input className="input-100" type="password" placeholder="Contraseña" name='password' id="password"></input>
                     <button className="btnAltaBus" onClick={handlerClick} >Acceder</button>
                 </div>
-            <Link className='registrarseLogin' to="/register">Dar Alta A Autobucito</Link>
+            <Link className='registrarseLogin' to="/altabus">Dar Alta A Autobucito</Link>
         </form>
      );
 }

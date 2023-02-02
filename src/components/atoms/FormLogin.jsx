@@ -1,29 +1,28 @@
-import {useState} from 'react'
+import {useRef} from 'react'
+import {useNavigate} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import '../../assets/styles/Inputs.css'
 import '../../assets/styles/FormLogin.css'
 
 function FormLogin() {
-    //const [description, setDescription] = useState({msn: "CC", v : 1})
-    //const [username, setUsername] = useState('')
-    const [stateForm, setStateForm] = useState({username:'', password:''})
+    const navigate = useNavigate()
+    const form = useRef()
     const handlerClick = (e) => {
         e.preventDefault()
-        setDescription({msn: username})    
+    
+        const newForm = new FormData(form.current)
+        alert('  UserName: ' + newForm.get('userName') + '  Password: ' + newForm.get('password'));
+        alert('{"status":true,"message":"El registro se almacenó correctamente"}');
+        navigate("/altabus");
     }
-    const handlerChange = (e) => {
-        setStateForm({...stateForm,username:e.target.value})
-    }
-    const handlerChangePassword = (e) => {
-        setStateForm({...stateForm,password: e.target.value})
-    }
+   
     return (
         <>
-        <form className="form-register">
+        <form ref={form} className="form-register">
                 <h2 className="form__titulo">Login</h2>
                 <div className="contenedor-inputs">
-                    <input className="input-100" type="text" placeholder="Nombre De Usuario"  value={stateForm.username} onChange={handlerChange}></input>
-                    <input className="input-100" type="password" placeholder="Contraseña" value ={stateForm.password} onChange={handlerChangePassword}></input>
+                    <input className="input-100" type="text" name='userName' id='userName' placeholder="Nombre De Usuario" ></input>
+                    <input className="input-100" type="password" name='password' id='password' placeholder="Contraseña" ></input>
                     <button className="btnAltaBus" onClick={handlerClick} >Acceder</button>
                 </div>
                 <Link className='registrarseLogin' to="/register">Registrarse</Link>
